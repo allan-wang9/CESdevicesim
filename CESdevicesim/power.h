@@ -7,8 +7,11 @@ class power
 public:
     power();
     void changeBattery();
+    int getBatteryCharge() const;
+    
 private:
     int batteryCharge;
 };
 
 #endif // POWER_H
+
