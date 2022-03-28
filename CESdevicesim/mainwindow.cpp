@@ -9,6 +9,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
 
+    //Initialize the battery
+    connect(ui->batterySpinBox, QOverload<int>::of(&QSpinBox::valueChanged), this, &MainWindow::changeBatteryCharge);
+    ui->batterySpinBox->setValue(power->getBatteryCharge());
+
+
+
+
     /*----------------------------------------------------------------------------------------
     The below are the images used for the application. Each are saved as resource files
     ---------------------------------------------------------------------------------------- */
@@ -88,5 +95,11 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::changeBatteryCharge(int batteryLevel) {
+        ui->batterySpinBox->setValue(batteryLevel);
+        int batteryLevelInt = int(batteryLevel);
+        ui->batteryBar->setValue(batteryLevelInt);
 }
 
