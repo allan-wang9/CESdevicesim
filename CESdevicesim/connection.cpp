@@ -4,8 +4,8 @@
 //constructor
 connection::connection(){
     this->connectionStatus = false;
-    this->connectionLevel = connectionLevel;
-
+    this->connectionLevel = 0;
+    
 }
 
 //testConnection() -> return 0 if an error is detected (no 9V battery), otherwise return 1
@@ -17,13 +17,10 @@ int connection::testConnection(){
     }
 }
 
-//resetConnection -> return 0 if connection cannot be reset, otherwise return 1
+//resetConnection -> return 0 if connection cannot be reset, otherwise return 1 
 int connection::resetConnection(){
     return 1; //will require more info on what determines a "reset"
 }
 
 //getter for connectionLevel
 int connection::getConnectionLevel() const {return connectionLevel;}
-
-//seter for connectionLevel
-void connection::setConnectionLevel(int connection) {connectionLevel = connection;}

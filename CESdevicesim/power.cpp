@@ -8,5 +8,6 @@ power::power()
 //getter for batteryCharge
 int power::getBatteryCharge() const {return batteryCharge;}
 
-//seter for batteryCharge
+//setter for batteryCharge
 void power::setBatteryCharge(int charge) {batteryCharge = charge;}
+
