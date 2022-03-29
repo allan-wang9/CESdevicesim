@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "connection.h"
 #include "ui_mainwindow.h"
 #include <QPixmap>
 
@@ -14,6 +15,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->batterySpinBox->setValue(power->getBatteryCharge());
 
 
+    //something in the below connection initialization is making the program crash
+    //Initialize the connection
+//    connect(ui->connectionSpinBox, QOverload<int>::of(&QSpinBox::valueChanged), this, &MainWindow::changeConnectionLevel);
+//    ui->connectionSpinBox->setValue(connection->getConnectionLevel());
+
+
+    //Replace Battery button connection
+    connect(ui->replaceBattery, &QPushButton::released, this, &MainWindow::replaceBattery);
 
 
     /*----------------------------------------------------------------------------------------
@@ -102,4 +111,22 @@ void MainWindow::changeBatteryCharge(int batteryLevel) {
         int batteryLevelInt = int(batteryLevel);
         ui->batteryBar->setValue(batteryLevelInt);
 }
+
+
+void MainWindow::replaceBattery() {
+
+    int batteryLevel = 100;
+    changeBatteryCharge(batteryLevel);
+}
+
+
+
+//something in the below changeConnectionLevel is making the program crash
+//void MainWindow::changeConnectionLevel(int connectionLevel) {
+//        ui->connectionSpinBox->setValue(connectionLevel);
+//        int connectionLevelInt = int(connectionLevel);
+//        ui->connectionBar->setValue(connectionLevelInt);
+//}
+
+
 
