@@ -8,7 +8,7 @@ public:
     power();
     void changeBattery();
     int getBatteryCharge() const;
-    
+    void setBatteryCharge(int);
 private:
     int batteryCharge;
 };

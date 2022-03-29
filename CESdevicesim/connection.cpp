@@ -1,8 +1,10 @@
 #include "connection.h"
+#include "power.h"
 
 //constructor
 connection::connection(){
     this->connectionStatus = false;
+    this->connectionLevel = 0;
     
 }
 
@@ -19,3 +21,6 @@ int connection::testConnection(){
 int connection::resetConnection(){
     return 1; //will require more info on what determines a "reset"
 }
+
+//getter for connectionLevel
+int connection::getConnectionLevel() const {return connectionLevel;}

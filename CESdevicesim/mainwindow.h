@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "connection.h"
+#include "power.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,5 +19,10 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    power* power;
+    connection* connection;
+    void changeBatteryCharge(int);
+    void changeConnectionLevel(int);
+    void replaceBattery();
 };
 #endif // MAINWINDOW_H

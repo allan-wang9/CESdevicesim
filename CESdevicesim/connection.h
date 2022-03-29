@@ -7,12 +7,15 @@ class connection{
 
 private:
     power devicePower;
-    bool connectionStatus;    
-    
+    bool connectionStatus;
+    int connectionLevel;
+
 public:
     connection();
     int testConnection();
     int resetConnection();
+    int getConnectionLevel() const;
+    void setConnectionLevel(int);
 };
 
 #endif // CONNECTION_H
